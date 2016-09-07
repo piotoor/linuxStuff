@@ -17,3 +17,6 @@ sudo apt-get --assume-yes install git;
 sudo apt-get --assume-yes install vim;
 sudo apt-get --assume-yes install tree;
 
+echo "-------------------- Downloading communicators -------------------- ";
+sudo apg-get --assume-yes install kadu;
+  
