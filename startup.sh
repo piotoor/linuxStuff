@@ -19,4 +19,9 @@ sudo apt-get --assume-yes install tree;
 
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apg-get --assume-yes install kadu;
+
+echo "-------------------- Downloading java -------------------- ";
+sudo apt-get --assume-yes install default-jre
+sudo apt-get --assume-yes install default-jdk
+ 
   
