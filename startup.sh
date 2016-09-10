@@ -27,3 +27,4 @@ sudo apt-get --assume-yes install default-jdk;
 echo "-------------------- Other apps -------------------- ";
 sudo apt-get --assume-yes install anki;
 sudo apt-get --assume-yes install gimp;
+sudo apt-get --assume-yes install qbittorrent;
