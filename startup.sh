@@ -28,3 +28,6 @@ echo "-------------------- Other apps -------------------- ";
 sudo apt-get --assume-yes install anki;
 sudo apt-get --assume-yes install gimp;
 sudo apt-get --assume-yes install qbittorrent;
+
+echo "-------------------- Flash  -------------------- "; 
+sudo apt-get --assume-yes install flashplugin-installer; 
