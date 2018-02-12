@@ -17,7 +17,18 @@ echo "-------------------- Downloading development stuff -------------------- ";
 sudo apt-get --assume-yes install git;
 sudo apt-get --assume-yes install vim;
 sudo apt-get --assume-yes install tree;
-sudo apt-get --assume-yes install 
+
+cd /usr/src
+wget https://www.python.org/ftp/python/3.4.5/Python-3.4.5.tgz
+sudo tar xzf Python-3.4.5.tgz
+cd Python-3.4.5
+sudo ./configure
+sudo make altinstall
+
+sudo apt-get --assume-yes install intltool itstool gir1.2-gtksource-3.0 libxml2-utils
+git clone https://git.gnome.org/browse/meld
+cd meld
+sudo python setup.py install
 
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apg-get --assume-yes install kadu;
