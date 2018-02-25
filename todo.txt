@@ -1,0 +1,2 @@
+1. either apt-get or apt
+2. add all repositories to the beginning and then run apt update
