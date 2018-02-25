@@ -32,7 +32,9 @@ sudo apt-get --assume-yes install build-essential;
 sudo apt-get --assume-yes install git;
 sudo apt-get --assume-yes install vim;
 sudo apt-get --assume-yes install tree;
-sudo apt-get --assume-yes install atom;
+sudo add-apt-repository -y ppa:webupd8team/atom
+sudo apt update;
+sudo apt -y install atom;
 sudo apt-get --assume-yes install codeblocks;
 sudo apt-get --assume-yes install sqlite3 libsqlite3-dev;
 sudo apt-get --assume-yes install golang
