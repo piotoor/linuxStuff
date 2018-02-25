@@ -1,7 +1,16 @@
 #!/bin/bash
 
 sudo apt-get update;
-supo apt-get upgrade
+sudo apt-get upgrade
+
+echo "-------------------- Downloading java -------------------- ";
+sudo apt-get --assume-yes install default-jre;
+sudo apt-get --assume-yes install default-jdk;
+sudo add-apt-repository -y ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get --assume-yes install java-common oracle-java8-installer
+sudo apt-get --assume-yes install oracle-java8-set-default
+source /etc/profile
 
 echo "-------------------- Downloading music related apps -------------------- ";
 sudo apt-get --assume-yes install banshee;
@@ -26,6 +35,11 @@ sudo apt-get --assume-yes install tree;
 sudo apt-get --assume-yes install atom;
 sudo apt-get --assume-yes install codeblocks;
 sudo apt-get --assume-yes install sqlite3 libsqlite3-dev;
+sudo apt-get --assume-yes install golang
+
+sudo add-apt-repository -y ppa:maarten-fonville/android-studio
+sudo apt update
+sudo apt -y install android-studio
 
 cd /usr/src
 wget https://www.python.org/ftp/python/3.4.5/Python-3.4.5.tgz
@@ -43,10 +57,8 @@ cd
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apg-get --assume-yes install kadu;
 
-echo "-------------------- Downloading java -------------------- ";
-sudo apt-get --assume-yes install default-jre;
-sudo apt-get --assume-yes install default-jdk;
- 
+
+
 echo "-------------------- Other apps -------------------- ";
 cd 
 mkdir anki
@@ -59,7 +71,7 @@ cd
 
 sudo apt-get --assume-yes install qbittorrent;
 
-sudo add-apt-repository ppa:unit193/encryption
+sudo add-apt-repository -y ppa:unit193/encryption
 sudo apt update
 sudo apt --assume-yes install veracrypt
 
