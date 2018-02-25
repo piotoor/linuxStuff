@@ -1,2 +1,7 @@
 1. either apt-get or apt
 2. add all repositories to the beginning and then run apt update
+3. mysql
+4. etcher
+5. g++ arm 
+6. auto install firefox plugins
+
