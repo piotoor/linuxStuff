@@ -1,22 +1,31 @@
 #!/bin/bash
 
-#sudo apt-get update;
+sudo apt-get update;
+supo apt-get upgrade
 
 echo "-------------------- Downloading music related apps -------------------- ";
 sudo apt-get --assume-yes install banshee;
 
+echo "-------------------- Downloading drivers -------------------- ";
+sudo apt-get --assume-yes install nvidia-384;
+
 echo "-------------------- Downloading video related apps -------------------- ";
 sudo apt-get --assume-yes install smplayer;
 sudo apt-get --assume-yes install qnapi;
-sudo apt-get install vlc browser-plugin-vlc
+sudo apt-get --assume-yes install vlc browser-plugin-vlc;
 
-echo "-------------------- Downloading image browsers and editors -------------------- ";
+echo "-------------------- Downloading browsers and editors -------------------- ";
 sudo apt-get --assume-yes install gthumb;
+sudo apt-get --assume-yes install gimp;
 
 echo "-------------------- Downloading development stuff -------------------- ";
+sudo apt-get --assume-yes install build-essential;
 sudo apt-get --assume-yes install git;
 sudo apt-get --assume-yes install vim;
 sudo apt-get --assume-yes install tree;
+sudo apt-get --assume-yes install atom;
+sudo apt-get --assume-yes install codeblocks;
+sudo apt-get --assume-yes install sqlite3 libsqlite3-dev;
 
 cd /usr/src
 wget https://www.python.org/ftp/python/3.4.5/Python-3.4.5.tgz
@@ -29,6 +38,7 @@ sudo apt-get --assume-yes install intltool itstool gir1.2-gtksource-3.0 libxml2-
 git clone https://git.gnome.org/browse/meld
 cd meld
 sudo python setup.py install
+cd
 
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apg-get --assume-yes install kadu;
@@ -38,9 +48,27 @@ sudo apt-get --assume-yes install default-jre;
 sudo apt-get --assume-yes install default-jdk;
  
 echo "-------------------- Other apps -------------------- ";
-sudo apt-get --assume-yes install anki;
-sudo apt-get --assume-yes install gimp;
+cd 
+mkdir anki
+cd anki
+wget https://apps.ankiweb.net/downloads/current/anki-2.0.47-amd64.tar.bz2
+tar xjf anki-2.0.47-amd64.tar.bz2
+cd anki-2.0.47
+sudo make install
+cd
+
 sudo apt-get --assume-yes install qbittorrent;
 
+sudo add-apt-repository ppa:unit193/encryption
+sudo apt update
+sudo apt --assume-yes install veracrypt
+
+sudo apt-get --assume-yes install bleachbit
 echo "-------------------- Flash  -------------------- "; 
 sudo apt-get --assume-yes install flashplugin-installer; 
+
+
+# git initial config
+git config --global user.email "piotoor@gmail.com"
+git config --global user.name "Piotr Kozka"
+
