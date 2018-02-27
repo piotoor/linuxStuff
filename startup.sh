@@ -62,6 +62,8 @@ sudo apg-get --assume-yes install kadu;
 
 
 echo "-------------------- Other apps -------------------- ";
+sudo apt-get update && sudo apt-get --assume-yes install p7zip-full p7zip-rar
+
 cd 
 mkdir anki
 cd anki
