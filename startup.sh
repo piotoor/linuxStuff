@@ -91,3 +91,6 @@ sudo apt-get --assume-yes install blueman
 git config --global user.email "piotoor@gmail.com"
 git config --global user.name "Piotr Kozka"
 
+echo "-------------------- grub -------------------- "; 
+sudo apt-get install grub-imageboot
+
