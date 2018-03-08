@@ -84,6 +84,9 @@ echo "-------------------- Flash  -------------------- ";
 sudo apt-get --assume-yes install flashplugin-installer; 
 
 
+echo "-------------------- Bluetooth -------------------- "; 
+sudo apt-get --assume-yes install blueman
+
 # git initial config
 git config --global user.email "piotoor@gmail.com"
 git config --global user.name "Piotr Kozka"
