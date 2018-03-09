@@ -57,7 +57,7 @@ sudo python setup.py install
 cd
 
 echo "-------------------- Downloading communicators -------------------- ";
-sudo apg-get --assume-yes install kadu;
+sudo apt-get --assume-yes install kadu;
 
 
 
