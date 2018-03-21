@@ -2,7 +2,6 @@
 2. add all repositories to the beginning and then run apt update
 3. mysql
 4. etcher
-5. g++ arm 
 6. auto install firefox plugins
 7. auto download all my repos
 8. auto download and unpack backup data

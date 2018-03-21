@@ -56,6 +56,11 @@ cd meld
 sudo python setup.py install
 cd
 
+sudo apt-get --assume-yes install libc6-armel-cross libc6-dev-armel-cross
+sudo apt-get --assume-yes install binutils-arm-linux-gnueabi
+sudo apt-get --assume-yes install libncurses5-dev
+sudo apt --assume-yes install gcc-arm-linux-gnueabi
+
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apt-get --assume-yes install kadu;
 
