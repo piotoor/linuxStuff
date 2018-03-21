@@ -7,4 +7,6 @@
 7. auto download all my repos
 8. auto download and unpack backup data
 9. parametrized script
+10. add aliases, PS1 colors and others to bashrc automatically
+
 
