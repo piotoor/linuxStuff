@@ -66,6 +66,10 @@ echo "-------------------- Downloading communicators -------------------- ";
 sudo apt-get --assume-yes install kadu;
 
 
+echo "-------------------- 3D modelling software -------------------- ";
+sudo add-apt-repository -y ppa:openscad/releases
+sudo apt-get update
+sudo apt-get --assume-yes install openscad
 
 echo "-------------------- Other apps -------------------- ";
 sudo apt-get update && sudo apt-get --assume-yes install p7zip-full p7zip-rar
@@ -92,6 +96,54 @@ sudo apt-get --assume-yes install flashplugin-installer;
 
 echo "-------------------- Bluetooth -------------------- "; 
 sudo apt-get --assume-yes install blueman
+
+
+echo "-------------------- Guitarix + dependencies -------------------- "; 
+sudo apt-get --assume-yes install ladspa-sdk
+sudo apt-get --assume-yes install libgtk-3-dev
+sudo apt-get --assume-yes install libgtkmm-3.0-dev
+sudo apt-get --assume-yes install libglib2.0-dev
+sudo apt-get --assume-yes install libsigc++-2.0-dev
+sudo apt-get --assume-yes install libzita-convolver-dev
+sudo apt-get --assume-yes install libzita-resampler-dev
+sudo apt-get --assume-yes install libsndfile1-dev
+sudo apt-get --assume-yes install libjack-dev
+sudo apt-get --assume-yes install libboost-all-dev
+sudo apt-get --assume-yes install libwebkit2gtk-4.0-dev
+sudo apt-get --assume-yes install liblrdf0-dev
+sudo apt-get --assume-yes install lv2-dev
+sudo apt-get --assume-yes install libsord-dev
+sudo apt-get --assume-yes install gperf
+sudo apt-get --assume-yes install faust
+sudo apt-get --assume-yes install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan
+sudo apt-get --assume-yes install libavahi-gobject-dev
+sudo apt-get install fonts-roboto
+
+cd ~/Downloads
+mkdir lilv
+cd lilv
+wget http://download.drobilla.net/lilv-0.5.0.tar.bz2
+tar xjf lilv-0.5.0.tar.bz2
+cd lilv-0.5.0
+./waf configure --prefix=/usr/local --debug --strict
+./waf -j4
+DESTDIR=/home/drobilla/packages ./waf install
+cd ~/Downloads
+mkdir guitarx
+cd guitarx
+wget https://sourceforge.net/projects/guitarix/files/guitarix/guitarix2-0.36.1.tar.xz
+tar xf guitarix2-0.36.1.tar.xz
+cd guitarix-0.36.1/
+
+# Workaround
+echo "Copying wscript file"
+cp -rfv ~/Repos/linuxStuff/guitarx_wscript/wscript .
+# Workaround
+
+./waf configure
+./waf build
+sudo ./waf install
+
 
 # git initial config
 git config --global user.email "piotoor@gmail.com"
