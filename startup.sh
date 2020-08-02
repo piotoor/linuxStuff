@@ -12,9 +12,6 @@ sudo apt-get --assume-yes install java-common oracle-java8-installer
 sudo apt-get --assume-yes install oracle-java8-set-default
 source /etc/profile
 
-echo "-------------------- Downloading music related apps -------------------- ";
-sudo apt-get --assume-yes install banshee;
-
 echo "-------------------- Downloading drivers -------------------- ";
 sudo apt-get --assume-yes install nvidia-384;
 
@@ -37,24 +34,12 @@ sudo apt update;
 sudo apt -y install atom;
 sudo apt-get --assume-yes install codeblocks;
 sudo apt-get --assume-yes install sqlite3 libsqlite3-dev;
-sudo apt-get --assume-yes install golang
-
-sudo add-apt-repository -y ppa:maarten-fonville/android-studio
-sudo apt update
-sudo apt -y install android-studio
-
-cd /usr/src
-wget https://www.python.org/ftp/python/3.4.5/Python-3.4.5.tgz
-sudo tar xzf Python-3.4.5.tgz
-cd Python-3.4.5
-sudo ./configure
-sudo make altinstall
-
-sudo apt-get --assume-yes install intltool itstool gir1.2-gtksource-3.0 libxml2-utils
-git clone https://git.gnome.org/browse/meld
-cd meld
-sudo python setup.py install
-cd
+sudo apt-get --assume-yes install python
+sudo apt-get --assume-yes install python3
+sudo apt-get --assume-yes install python-pip
+sudo pip install numpy
+sudo apt-get --assume-yes install snap
+sudo snap install pycharm-community --classic
 
 sudo apt-get --assume-yes install libc6-armel-cross libc6-dev-armel-cross
 sudo apt-get --assume-yes install binutils-arm-linux-gnueabi
@@ -63,92 +48,71 @@ sudo apt --assume-yes install gcc-arm-linux-gnueabi
 sudo apt --assume-yes install g++-arm-linux-gnueabi
 
 echo "-------------------- Downloading communicators -------------------- ";
-sudo apt-get --assume-yes install kadu;
+sudo apt-get --assume-yes install kadu
+sudo snap install discord
+sudo snap install slack --classic
 
-
-echo "-------------------- 3D modelling software -------------------- ";
+echo "-------------------- Downloading 3D modelling software -------------------- ";
 sudo add-apt-repository -y ppa:openscad/releases
 sudo apt-get update
 sudo apt-get --assume-yes install openscad
 
-echo "-------------------- Other apps -------------------- ";
+echo "-------------------- Downloading other apps -------------------- ";
 sudo apt-get update && sudo apt-get --assume-yes install p7zip-full p7zip-rar
 
-cd 
+cd
 mkdir anki
 cd anki
-wget https://apps.ankiweb.net/downloads/current/anki-2.0.47-amd64.tar.bz2
-tar xjf anki-2.0.47-amd64.tar.bz2
-cd anki-2.0.47
+wget https://apps.ankiweb.net/downloads/current/anki-2.1.26-linux-amd64.tar.bz2
+tar xjf anki-2.1.26-linux-amd64.tar.bz2
+cd anki-2.1.26-linux-amd64
 sudo make install
 cd
-
 sudo apt-get --assume-yes install qbittorrent;
 
-sudo add-apt-repository -y ppa:unit193/encryption
-sudo apt update
-sudo apt --assume-yes install veracrypt
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt-get update
+sudo apt-get --assume-yes install libreoffice
 
-sudo apt-get --assume-yes install bleachbit
-echo "-------------------- Flash  -------------------- "; 
-sudo apt-get --assume-yes install flashplugin-installer; 
+echo "-------------------- Downloading flash  -------------------- ";
+sudo apt-get --assume-yes install flashplugin-installer;
 
-
-echo "-------------------- Bluetooth -------------------- "; 
+echo "-------------------- Downloading bluetooth stuff -------------------- ";
 sudo apt-get --assume-yes install blueman
 
+echo "-------------------- Downloading security & backups stuff -------------------- ";
+sudo apt-get --assume-yes install nordvpn
+# todo config files
+sudo apt --assume-yes install cryptsetup
+sudo apt-get --assume-yes install bleachbit
+sudo apt-get --assume-yes install rsync
 
-echo "-------------------- Guitarix + dependencies -------------------- "; 
-sudo apt-get --assume-yes install ladspa-sdk
-sudo apt-get --assume-yes install libgtk-3-dev
-sudo apt-get --assume-yes install libgtkmm-3.0-dev
-sudo apt-get --assume-yes install libglib2.0-dev
-sudo apt-get --assume-yes install libsigc++-2.0-dev
-sudo apt-get --assume-yes install libzita-convolver-dev
-sudo apt-get --assume-yes install libzita-resampler-dev
-sudo apt-get --assume-yes install libsndfile1-dev
-sudo apt-get --assume-yes install libjack-dev
-sudo apt-get --assume-yes install libboost-all-dev
-sudo apt-get --assume-yes install libwebkit2gtk-4.0-dev
-sudo apt-get --assume-yes install liblrdf0-dev
-sudo apt-get --assume-yes install lv2-dev
-sudo apt-get --assume-yes install libsord-dev
-sudo apt-get --assume-yes install gperf
-sudo apt-get --assume-yes install faust
-sudo apt-get --assume-yes install avahi-daemon avahi-discover avahi-utils libnss-mdns mdns-scan
-sudo apt-get --assume-yes install libavahi-gobject-dev
-sudo apt-get install fonts-roboto
+echo "-------------------- Downloading grub stuff -------------------- ";
+sudo apt-get install grub-imageboot
 
-cd ~/Downloads
-mkdir lilv
-cd lilv
-wget http://download.drobilla.net/lilv-0.5.0.tar.bz2
-tar xjf lilv-0.5.0.tar.bz2
-cd lilv-0.5.0
-./waf configure --prefix=/usr/local --debug --strict
-./waf -j4
-DESTDIR=/home/drobilla/packages ./waf install
-cd ~/Downloads
-mkdir guitarx
-cd guitarx
-wget https://sourceforge.net/projects/guitarix/files/guitarix/guitarix2-0.36.1.tar.xz
-tar xf guitarix2-0.36.1.tar.xz
-cd guitarix-0.36.1/
-
-# Workaround
-echo "Copying wscript file"
-cp -rfv ~/Repos/linuxStuff/guitarx_wscript/wscript .
-# Workaround
-
-./waf configure
-./waf build
-sudo ./waf install
-
+echo "-------------------- Configuring git -------------------- ";
+sudo apt-get install --assume-yes kdiff3
 
 # git initial config
 git config --global user.email "piotoor@gmail.com"
 git config --global user.name "Piotr Kozka"
+git config --global core.editor nano
+git config --global diff.tool kdiff3
+git config --global merge.tool kdiff3
+git config --global mergetool.meld.path=/usr/bin/kdiff3
+git config --global difftool.meld.path=/usr/bin/kdiff3
 
-echo "-------------------- grub -------------------- "; 
-sudo apt-get install grub-imageboot
+git config --global color.ui true
+git config --global color.status.changed red
+git config --global color.status.untracked magenta
+git config --global color.status.header "white normal dim"
 
+echo "-------------------- Getting repos -------------------- ";
+cd
+mkdir Repos
+cd Repos
+git clone https://github.com/piotoor/programmingCore.git
+git clone https://github.com/piotoor/linuxStuff.git
+git clone https://github.com/piotoor/alphaBotProject.git
+git clone https://piotoor@bitbucket.org/piotoor/speedcubingalgorithms.git
+cd
