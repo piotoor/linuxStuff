@@ -69,6 +69,7 @@ cd anki-2.1.26-linux-amd64
 sudo make install
 cd
 sudo apt-get --assume-yes install qbittorrent;
+sudo apt-get --assume-yes install notepadqq
 
 sudo add-apt-repository ppa:libreoffice/ppa
 sudo apt-get update
@@ -81,7 +82,14 @@ echo "-------------------- Downloading bluetooth stuff -------------------- ";
 sudo apt-get --assume-yes install blueman
 
 echo "-------------------- Downloading security & backups stuff -------------------- ";
-sudo apt-get --assume-yes install nordvpn
+# todo as normal user
+cd /tmp
+wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
+sudo dpkg -i nordvpn-release_1.0.0_all.deb
+sudo apt-get update
+sudo apt-get install nordvpn
+cd
+# end todo
 # todo config files
 sudo apt --assume-yes install cryptsetup
 sudo apt-get --assume-yes install bleachbit
