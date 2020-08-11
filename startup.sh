@@ -47,6 +47,7 @@ sudo apt-get --assume-yes install libncurses5-dev
 sudo apt --assume-yes install gcc-arm-linux-gnueabi
 sudo apt --assume-yes install g++-arm-linux-gnueabi
 sudo apt --assume-yes install codeblocks-contrib
+sudo apt-get --assume-yes install libsfml-dev
 
 echo "-------------------- Downloading communicators -------------------- ";
 sudo apt-get --assume-yes install kadu
