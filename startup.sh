@@ -34,8 +34,8 @@ clone_repos () {
 
 ssh_configuration () {
   echo "-------------------- ssh configuration -------------------- ";
-  #ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-  #ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts
+  ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+  ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts
   ssh-keygen -t ed25519 -C "piotoor@gmail.com" -f /home/$username/.ssh/$1
   eval "$(ssh-agent -s)"
   ssh-add ~/.ssh/$1
