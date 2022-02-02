@@ -99,7 +99,7 @@ cd /tmp
 wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i nordvpn-release_1.0.0_all.deb
 sudo apt-get update
-sudo apt-get install nordvpn
+sudo apt-get --assume-yes install nordvpn
 cd
 
 sudo apt --assume-yes install cryptsetup
@@ -107,7 +107,7 @@ sudo apt-get --assume-yes install bleachbit
 sudo apt-get --assume-yes install rsync
 
 echo "-------------------- Downloading grub stuff -------------------- ";
-sudo apt-get install grub-imageboot
+sudo apt-get install --assume-yes grub-imageboot
 
 echo "-------------------- Downloading other utilities -------------------- ";
 sudo apt-get --assume-yes install qbittorrent;
