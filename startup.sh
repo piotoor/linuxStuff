@@ -1,4 +1,18 @@
-#!/bin/bash
+#!/bin/env bash
+
+username=$1
+if [ $# -ne 1 ]
+then
+  echo "1 argument expected. Provided $#"
+  exit 1
+fi
+
+su $username
+if [ $? -ne 0 ]
+then
+  echo "Wrong user credentials"
+  exit 1
+fi
 
 sudo apt-get update;
 sudo apt-get upgrade
@@ -12,9 +26,6 @@ sudo apt-get --assume-yes install java-common oracle-java8-installer
 sudo apt-get --assume-yes install oracle-java8-set-default
 source /etc/profile
 
-echo "-------------------- Downloading drivers -------------------- ";
-sudo apt-get --assume-yes install nvidia-384;
-
 echo "-------------------- Downloading video related apps -------------------- ";
 sudo apt-get --assume-yes install smplayer;
 sudo apt-get --assume-yes install qnapi;
@@ -23,6 +34,10 @@ sudo apt-get --assume-yes install vlc browser-plugin-vlc;
 echo "-------------------- Downloading browsers and editors -------------------- ";
 sudo apt-get --assume-yes install gthumb;
 sudo apt-get --assume-yes install gimp;
+sudo apt-get --assume-yes install notepadqq
+sudo add-apt-repository ppa:libreoffice/ppa
+sudo apt-get update
+sudo apt-get --assume-yes install libreoffice
 
 echo "-------------------- Downloading development stuff -------------------- ";
 sudo apt-get --assume-yes install build-essential;
@@ -53,29 +68,24 @@ echo "-------------------- Downloading communicators -------------------- ";
 sudo apt-get --assume-yes install kadu
 sudo snap install discord
 sudo snap install slack --classic
+sudo apt-get --assume-yes install zoom
 
 echo "-------------------- Downloading 3D modelling software -------------------- ";
 sudo add-apt-repository -y ppa:openscad/releases
 sudo apt-get update
 sudo apt-get --assume-yes install openscad
 
-echo "-------------------- Downloading other apps -------------------- ";
+echo "-------------------- Downloading learning apps -------------------- ";
 sudo apt-get update && sudo apt-get --assume-yes install p7zip-full p7zip-rar
 
-cd
+cd /home/$username
 mkdir anki
 cd anki
 wget https://apps.ankiweb.net/downloads/current/anki-2.1.26-linux-amd64.tar.bz2
 tar xjf anki-2.1.26-linux-amd64.tar.bz2
 cd anki-2.1.26-linux-amd64
 sudo make install
-cd
-sudo apt-get --assume-yes install qbittorrent;
-sudo apt-get --assume-yes install notepadqq
-
-sudo add-apt-repository ppa:libreoffice/ppa
-sudo apt-get update
-sudo apt-get --assume-yes install libreoffice
+cd /home/$username
 
 echo "-------------------- Downloading flash  -------------------- ";
 sudo apt-get --assume-yes install flashplugin-installer;
@@ -84,15 +94,13 @@ echo "-------------------- Downloading bluetooth stuff -------------------- ";
 sudo apt-get --assume-yes install blueman
 
 echo "-------------------- Downloading security & backups stuff -------------------- ";
-# todo as normal user
 cd /tmp
 wget -qnc https://repo.nordvpn.com/deb/nordvpn/debian/pool/main/nordvpn-release_1.0.0_all.deb
 sudo dpkg -i nordvpn-release_1.0.0_all.deb
 sudo apt-get update
 sudo apt-get install nordvpn
 cd
-# end todo
-# todo config files
+
 sudo apt --assume-yes install cryptsetup
 sudo apt-get --assume-yes install bleachbit
 sudo apt-get --assume-yes install rsync
@@ -100,10 +108,12 @@ sudo apt-get --assume-yes install rsync
 echo "-------------------- Downloading grub stuff -------------------- ";
 sudo apt-get install grub-imageboot
 
+echo "-------------------- Downloading other utilities -------------------- ";
+sudo apt-get --assume-yes install qbittorrent;
+
 echo "-------------------- Configuring git -------------------- ";
 sudo apt-get install --assume-yes kdiff3
 
-# git initial config
 git config --global user.email "piotoor@gmail.com"
 git config --global user.name "Piotr Kozka"
 git config --global core.editor nano
@@ -118,11 +128,14 @@ git config --global color.status.untracked magenta
 git config --global color.status.header "white normal dim"
 
 echo "-------------------- Getting repos -------------------- ";
-cd
+cd /home/$username
 mkdir Repos
 cd Repos
 git clone https://github.com/piotoor/programmingCore.git
 git clone https://github.com/piotoor/linuxStuff.git
-git clone https://github.com/piotoor/alphaBotProject.git
 git clone https://piotoor@bitbucket.org/piotoor/speedcubingalgorithms.git
+git clone https://github.com/piotoor/ev3dev-printer.git
+git clone https://github.com/piotoor/sfmlRaycaster.git
+git clone https://github.com/piotoor/ruGroupAnalyser.git
+git clone https://github.com/piotoor/AdventOfCode2021
 cd
