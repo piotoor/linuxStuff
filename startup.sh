@@ -7,10 +7,11 @@ then
   exit 1
 fi
 
-su $username
-if [ $? -ne 0 ]
+if id "$1" &>/dev/null
 then
-  echo "Wrong user credentials"
+  echo "User found. Proceeding..."
+else
+  echo "User not found. Exiting..."
   exit 1
 fi
 
