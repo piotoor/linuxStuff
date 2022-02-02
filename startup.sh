@@ -78,7 +78,7 @@ sudo apt-get --assume-yes install openscad
 echo "-------------------- Downloading learning apps -------------------- ";
 sudo apt-get update && sudo apt-get --assume-yes install p7zip-full p7zip-rar
 
-cd /home/$username
+cd /tmp
 mkdir anki
 cd anki
 wget https://apps.ankiweb.net/downloads/current/anki-2.1.26-linux-amd64.tar.bz2
