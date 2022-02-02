@@ -117,6 +117,7 @@ install_dev_stuff () {
   sudo add-apt-repository -y ppa:webupd8team/atom
   sudo apt update;
   sudo apt update;
+  sudo apt -y install cmake
   sudo apt install software-properties-common apt-transport-https wget;
   cd /tmp
   wget -q https://packagecloud.io/AtomEditor/atom/gpgkey -O- | sudo apt-key add -
