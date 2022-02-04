@@ -106,6 +106,8 @@ install_browsers_and_editors () {
   sudo add-apt-repository ppa:libreoffice/ppa
   sudo apt-get update
   sudo apt-get --assume-yes install libreoffice
+  sudo apt-get --assume-yes install chromium-browser
+
 }
 
 install_dev_stuff () {
