@@ -196,6 +196,10 @@ install_security_and_backup_tools () {
   sudo apt --assume-yes install cryptsetup
   sudo apt-get --assume-yes install bleachbit
   sudo apt-get --assume-yes install rsync
+
+  sudo apt-get --assume-yes install tor torbrowser-launcher
+  torbrowser-launcher
+
 }
 
 install_other_stuff () {
