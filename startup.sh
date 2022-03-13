@@ -132,9 +132,11 @@ install_dev_stuff () {
   sudo apt-get --assume-yes install python
   sudo apt-get --assume-yes install python3
   sudo apt-get --assume-yes install python-pip
+  sudo apt-get --assume-yes install python-pip3
   sudo pip install numpy
   sudo apt-get --assume-yes install snap
   sudo snap install pycharm-community --classic
+  sudo pip3 install virtualenv
 
   sudo apt-get --assume-yes install libc6-armel-cross libc6-dev-armel-cross
   sudo apt-get --assume-yes install binutils-arm-linux-gnueabi
